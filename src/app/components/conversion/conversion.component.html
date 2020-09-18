@@ -7,9 +7,10 @@
                     <input type="text" value="1">
                 </form>
                 <form class="example-form">
-                    <input type="text" placeholder="Units" [formControl]="control" [matAutocomplete]="auto">
+                    <input type="text" placeholder="Units" [(value)]="units[0]" [formControl]="control"
+                        [matAutocomplete]="auto">
                     <mat-autocomplete #auto="matAutocomplete">
-                        <mat-option *ngFor="let unit of filteredUnits | async" [value]="unit">
+                        <mat-option *ngFor="let unit of units" [value]="unit">
                             {{unit}}
                         </mat-option>
                     </mat-autocomplete>
@@ -23,9 +24,10 @@
                     <input type="text" value="1">
                 </form>
                 <form class="example-form">
-                    <input type="text" placeholder="Units" [formControl]="control" [matAutocomplete]="auto">
+                    <input type="text" placeholder="Units" [(value)]="units[0]" [formControl]="control"
+                        [matAutocomplete]="auto">
                     <mat-autocomplete #auto="matAutocomplete">
-                        <mat-option *ngFor="let unit of filteredUnits | async" [value]="unit">
+                        <mat-option *ngFor="let unit of units" [value]="unit">
                             {{unit}}
                         </mat-option>
                     </mat-autocomplete>

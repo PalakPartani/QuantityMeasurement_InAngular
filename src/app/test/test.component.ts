@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { DataServiceService } from '../services/data-service.service'
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
@@ -16,7 +16,12 @@ export class TestComponent implements OnInit {
   public selectedVol = false;
   public selectedTemp = false;
   public temp = true;
-  constructor() { }
+  public lengthUnitArray: string[] = ["CM", "Meter", "Yard", "Inch"];
+  public tempUnitArray: string[] = ["Fahrenheit", "Celcius"];
+  public VolUnitArray: string[] = ["Litre", "ML", "Gallon"];
+
+
+  constructor(private data: DataServiceService) { }
 
   ngOnInit(): void {
   }
@@ -33,18 +38,19 @@ export class TestComponent implements OnInit {
       this.imgSrcTemp = '../assets/images/hot.svg';
       this.imgSrcVol = '../assets/images/VOLUME.svg';
       this.imgSrc = '../assets/images/LENGTH.svg';
-
+      this.data.changeUnits({ array: this.tempUnitArray });
     }
     else if (unit == 'VOLUME') {
       this.imgSrcVol = '../assets/images/CVOLUME.svg';
       this.imgSrc = '../assets/images/LENGTH.svg';
       this.imgSrcTemp = '../assets/images/TEMPERATURE.svg';
-
+      this.data.changeUnits({ array: this.VolUnitArray });
     }
     else {
       this.imgSrc = '../assets/images/CLENGTH.svg';
       this.imgSrcVol = '../assets/images/VOLUME.svg';
       this.imgSrcTemp = '../assets/images/TEMPERATURE.svg';
+      this.data.changeUnits({ array: this.lengthUnitArray });
     }
     // alert("Inside" + this.selectedBox);
   }
