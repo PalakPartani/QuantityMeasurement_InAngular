@@ -1,0 +1,131 @@
+$lengthcolor:#0EC098;
+$tempbgcolor: rgba(236, 167, 167,0.5);
+$tempcolor:red;
+$volumecolor:#7224FF;
+$volumebgcolor:rgba(236, 167, 167,0.5);
+.box{
+    display: flex;
+    width: 100px;
+    padding: 30px 50px;
+    margin: 1px auto;
+}
+.boxx{
+    display:flex;
+    padding: 40px;
+    margin: 0px auto; 
+}
+.choose{
+    height:10px;
+    margin-top: 30px;
+    margin-left: 25%;
+    font-family: arial;
+    color:black;
+    font-size: 22px;
+    text-align: left;
+    padding-top: 40px;
+    margin-bottom: 10px;
+}
+
+
+.box1{
+    width: 120px;
+    height: 120px;
+    padding: 10px 40px;
+    margin-right: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px silver;
+    cursor: pointer;
+    background-color: whitesmoke;
+}
+    
+.boxIcon{
+    margin: 0px auto;
+    height: 80px;
+    width: 20px;
+}
+.boxText{
+    text-align: center;
+}
+.LENGTH{
+    color : silver;
+}
+.LENGTH:hover{
+   color:$lengthcolor !important;
+    background-color: #EDFDF9  !important;
+    border: 1px solid $lengthcolor !important;
+   
+}
+
+.LENGTH:active{
+    color : #0EC098 !important;
+    background-color: #EDFDF9 !important;
+    border: 1px solid #0EC098 !important;
+}
+
+.TEMPERATURE{
+    color : silver;
+    
+}
+.TEMPERATURE:hover{
+   color:$tempcolor;
+   background-color: $tempbgcolor!important;
+   // background-color: rgba(236, 167, 167,0.5)!important;
+    border: 1px solid red !important;
+    
+}
+
+.TEMPERATURE:active{
+    color : red;
+    background-color: $tempbgcolor;
+   // background-color: rgba(236, 167, 167,0.5);
+    border: 1px solid red !important;
+}
+
+.VOLUME{
+    color : silver;
+
+}
+.VOLUME:hover{
+    background-color : #7224FF !important;
+   // background-color: rgba(236, 167, 167,0.5)!important;
+    background-color: $volumebgcolor !important;
+    border: 1px solid #7224FF !important;
+  
+}
+
+.VOLUME:active{
+    color : #7224FF;
+    background-color: rgba(236, 167, 167,0.5);
+    border: 1px solid #7224FF !important;
+}
+
+// .imgBox{
+//     display: block;
+// }
+// .imgBox .box1:hover{
+//     display: none !important;
+// }
+
+// .imgBoxHover{
+//     display: none;
+// }
+// .imgBoxHover .box1:hover{
+//     display: block !important;
+// }
+
+// .box1:hover{
+//     border:1px solid silver;    
+//     background-color:transparent;
+// }
+.alignBox{
+    display: flex;
+    justify-content: center;
+    padding-top:20px;
+}
+
+.appBody{
+    
+    background-color:#E8DDFF;
+    height: 1000px;
+    margin-top: -30px;
+    }

@@ -1,0 +1,36 @@
+<div>
+    <div class="boxFromTo" fxLayout="row" fxLayout.xs="column" fxLayoutAlign.xs="end center">
+        <div class="fromdiv">
+            <p>FROM</p>
+            <div class="condata">
+                <form>
+                    <input type="text" value="1">
+                </form>
+                <form class="example-form">
+                    <input type="text" placeholder="Units" [formControl]="control" [matAutocomplete]="auto">
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let unit of filteredUnits | async" [value]="unit">
+                            {{unit}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </form>
+            </div>
+        </div>
+        <div class="fromdiv">
+            <p>TO</p>
+            <div class="condata">
+                <form>
+                    <input type="text" value="1">
+                </form>
+                <form class="example-form">
+                    <input type="text" placeholder="Units" [formControl]="control" [matAutocomplete]="auto">
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let unit of filteredUnits | async" [value]="unit">
+                            {{unit}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

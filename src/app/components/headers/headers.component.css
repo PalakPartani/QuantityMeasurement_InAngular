@@ -1,0 +1,16 @@
+.headTitle{
+    padding: 20px;
+    background-color: #446DFF;
+    color:white;
+    font-family: Montserrat,Regular;
+    text-align: center;
+    margin-bottom: -20px;
+}
+.title{
+    font-size: 30px;
+    width: 800px;
+    text-align: center;
+    font-family: Montserrat,Regular;
+    margin: 0px auto;
+    color: rgb(212, 215, 218);
+}

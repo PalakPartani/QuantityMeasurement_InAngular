@@ -1,0 +1,26 @@
+<div style="height:200px">
+    <div class="choose">
+        Choose type
+    </div>
+    <div class="alignBox" fxLayout='row' fxLayout.sm='column' fxLayoutAlign.sm="space-evenly center">
+        <div class="box1 LENGTH" (mouseover)="imgSrc ='../assets/images/CLENGTH.svg'"
+            imgSrc='../assets/images/CLENGTH.svg' (mouseout)=" imgSrc='../assets/images/LENGTH.svg'">
+            <div class=" box">
+                <img [src]="imgSrc">
+            </div>
+        </div>
+
+        <div class="box1 VOLUME " (mouseover)="imgSrcVol ='../assets/images/CVOLUME.svg'"
+            (mouseout)="imgSrcVol ='../assets/images/VOLUME.svg'">
+            <div class="box">
+                <img [src]="imgSrcVol">
+            </div>
+        </div>
+        <div class="box1 TEMPERATURE" (mouseover)="imgSrcTemp ='../assets/images/hot.svg'"
+            (mouseout)="imgSrcTemp ='../assets/images/TEMPERATURE.svg'">
+            <div class="box">
+                <img [src]="imgSrcTemp">
+            </div>
+        </div>
+    </div>
+</div>

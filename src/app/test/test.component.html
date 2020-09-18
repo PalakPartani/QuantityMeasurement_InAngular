@@ -1,0 +1,31 @@
+<div style="height:200px">
+    <div class="choose">
+        Choose type
+    </div>
+    <div class="alignBox" fxLayout='row' fxLayout.xs='column' fxLayoutAlign.xs="space-evenly center">
+        <div class="box1 LENGTH" (click)="selectBox('LENGTH')" [ngClass]="{'highlight':selectedBox==='LENGTH'}"
+            (mouseover)="imgSrc ='../assets/images/CLENGTH.svg'" imgSrc='../assets/images/CLENGTH.svg'
+            (mouseout)=" mouseOutEvent('LENGTH')">
+            <div class=" box">
+                <img [src]="imgSrc">
+            </div>
+            <div style="text-align: center; margin: -13px;">LENGTH</div>
+        </div>
+
+        <div class="box1 VOLUME " (click)="selectBox('VOLUME')" [ngClass]="{'highlightVol':selectedBox==='VOLUME'}"
+            (mouseover)="imgSrcVol ='../assets/images/CVOLUME.svg'" (mouseout)="mouseOutEvent('VOLUME')">
+            <div class="box">
+                <img [src]="imgSrcVol">
+            </div>
+            <div style="text-align: center; margin: -13px;">VOLUME</div>
+        </div>
+        <div class="box1 TEMPERATURE" (click)="selectBox('TEMPERATURE')"
+            [ngClass]="{'highlightTemp':selectedBox==='TEMPERATURE'}"
+            (mouseover)="imgSrcTemp ='../assets/images/hot.svg'" (mouseout)="mouseOutEvent('TEMPERATURE')">
+            <div class="box">
+                <img [src]="imgSrcTemp">
+            </div>
+            <div style="text-align: center; margin: -23px;">TEMPERATURE</div>
+        </div>
+    </div>
+</div>
