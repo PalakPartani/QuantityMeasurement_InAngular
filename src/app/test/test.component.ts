@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../services/data-service.service'
+import { HTTPServiceService } from '../services/httpservice.service'
+import { QuantityMeasurementService } from '../services/quantity-measurement.service';
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
@@ -19,11 +21,21 @@ export class TestComponent implements OnInit {
   public lengthUnitArray: string[] = ["CM", "Meter", "Yard", "Inch"];
   public tempUnitArray: string[] = ["Fahrenheit", "Celcius"];
   public VolUnitArray: string[] = ["Litre", "ML", "Gallon"];
+  public t;
 
-
-  constructor(private data: DataServiceService) { }
+  // constructor(private data: DataServiceService, private resp: HTTPServiceService) { }
+  constructor(private data: DataServiceService, private quantity: QuantityMeasurementService) { }
 
   ngOnInit(): void {
+    //call from QM service 
+    this.quantity.do().subscribe(resp => {
+      console.log("Inside api data", resp)
+    })
+    // this.resp.getBaseUnits().subscribe(resp => {
+
+    //   console.log("Inside api data", resp)
+    // }
+    // )
   }
 
   activeBox() {

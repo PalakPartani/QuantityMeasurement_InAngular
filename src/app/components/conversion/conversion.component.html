@@ -1,17 +1,21 @@
 <div>
-    <div class="boxFromTo" fxLayout="row" fxLayout.xs="column" fxLayoutAlign.xs="end center">
+    <div class="boxFromTo" fxLayout="row" fxLayout.xs="column" fxFlex.sm=80 fxLayoutAlign.xs="end center">
         <div class="fromdiv">
             <p>FROM</p>
             <div class="condata">
                 <form>
-                    <input type="text" value="1">
+                    <input type="text" name="inputUnit" [(ngModel)]="inputUnit"
+                        (keypress)="keyPress($event,'Helo','user')">
                 </form>
                 <form class="example-form">
-                    <input type="text" placeholder="Units" [(value)]="units[0]" [formControl]="control"
+                    <input type="text" placeholder="Units" name="unit" [(ngModel)]="unit" [formControl]="control"
                         [matAutocomplete]="auto">
                     <mat-autocomplete #auto="matAutocomplete">
                         <mat-option *ngFor="let unit of units" [value]="unit">
+                            <!-- (change)="convertData('units[0]','units[1]',inputValue)"> -->
+                            <!-- [(subUnitSelectedOne)]="unit" -->
                             {{unit}}
+
                         </mat-option>
                     </mat-autocomplete>
                 </form>

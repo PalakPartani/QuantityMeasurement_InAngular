@@ -12,7 +12,8 @@ import { HomeComponent } from './components/home/home.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TestComponent } from './test/test.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { HTTPServiceService } from './services/httpservice.service';
 
 
 @NgModule({
@@ -33,8 +34,10 @@ import { TestComponent } from './test/test.component';
     MatAutocompleteModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  //adding httpservice in provider
+  providers: [HTTPServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
