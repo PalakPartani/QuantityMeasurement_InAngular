@@ -5,15 +5,14 @@
             <div class="condata">
                 <form>
                     <input type="text" name="inputUnit" [(ngModel)]="inputUnit"
-                        (keypress)="keyPress($event,'Helo','user')">
+                        (keypress)="keyPress($event,unit,subUnit)">
                 </form>
                 <form class="example-form">
-                    <input type="text" placeholder="Units" name="unit" [(ngModel)]="unit" [formControl]="control"
+                    <input type="text" placeholder="{{units[0]}}" name="unit" [(ngModel)]="unit" [formControl]="control"
                         [matAutocomplete]="auto">
-                    <mat-autocomplete #auto="matAutocomplete">
+                    <mat-autocomplete #auto="matAutocomplete"
+                        (optionSelected)='passConversionData($event.option.value,subUnit,inputValue)'>
                         <mat-option *ngFor="let unit of units" [value]="unit">
-                            <!-- (change)="convertData('units[0]','units[1]',inputValue)"> -->
-                            <!-- [(subUnitSelectedOne)]="unit" -->
                             {{unit}}
 
                         </mat-option>
@@ -25,14 +24,15 @@
             <p>TO</p>
             <div class="condata">
                 <form>
-                    <input type="text" value="1">
+                    <input type="text" value={{dataa}}>
                 </form>
                 <form class="example-form">
-                    <input type="text" placeholder="Units" [(value)]="units[0]" [formControl]="control"
-                        [matAutocomplete]="auto">
-                    <mat-autocomplete #auto="matAutocomplete">
-                        <mat-option *ngFor="let unit of units" [value]="unit">
-                            {{unit}}
+                    <input type="text" placeholder="{{units[0]}}" name="subUnit" [(ngModel)]="subUnit"
+                        [formControl]="control" [matAutocomplete]="auto">
+                    <mat-autocomplete #auto="matAutocomplete"
+                        (optionSelected)='passConversionData(unit,$event.option.value,inputValue)'>
+                        <mat-option *ngFor="let subUnit of units" [value]="subUnit">
+                            {{subUnit}}
                         </mat-option>
                     </mat-autocomplete>
                 </form>

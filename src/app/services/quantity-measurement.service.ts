@@ -28,7 +28,8 @@ export class QuantityMeasurementService {
     }
     var result = this.httpService.getConversionResult(unitConversionDTO);
 
-    console.log("Result of conversion : " + result);
+    console.log("Result of conversion : " + JSON.stringify(result));
+    console.log("result " + result);
     return result;
   }
 }
