@@ -26,7 +26,9 @@ export class ConversionComponent implements OnInit {
   subUnitSelectedOne = "";
   subUnitSelectedTwo = "";
   filteredUnits: Observable<string[]>;
-
+  clear() {
+    this.inputUnit = '';
+  }
   constructor(private data: DataServiceService, private quantityMeasurement: QuantityMeasurementService) { }
 
   ngOnInit() {
@@ -35,6 +37,8 @@ export class ConversionComponent implements OnInit {
       console.log("Inside conversion", message);
     });
   }
+
+
   keyPress(event: any, val: string, val2: string) {
     console.log("Inside key press", event);
     console.log("value", val);
@@ -59,31 +63,4 @@ export class ConversionComponent implements OnInit {
         console.log("Inside json", this.dataa);
       })
   }
-
-  // passConversionData(subUnitSelectedOne: string, subUnitSelectedTwo: string, inputValue: any) {
-
-  //   const unitConversionDTO = {
-  //     "unitTypeOne": subUnitSelectedOne,
-  //     "unitTypeSecond": subUnitSelectedTwo,
-  //     "value": inputValue
-
-  //   }
-  //   this.quantityMeasurement.getConversionResult(unitConversionDTO).
-  //     subscribe((res: Response) => {
-  //       console.log("Inside response : " + res);
-  //       console.log("....................", res.data);
-  //       this.dataa = JSON.stringify(res);
-  //       console.log("Dataa ", this.dataa);
-
-  //       let response: any = {
-  //         "data": ""
-  //       }
-  //       response = this.dataa;
-  //       console.log(response.data);
-  //       this.result = 0;
-
-  //       console.log("Inside json", this.result);
-
-  //     })
-  // }
 }

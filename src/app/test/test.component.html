@@ -2,7 +2,8 @@
     <div class="choose">
         Choose type
     </div>
-    <div class="alignBox" fxLayout='row' fxLayout.xs='column' fxLayoutAlign.xs="space-evenly center">
+    <div class="alignBox" fxLayout='row' fxLayout.xs='column' fxLayoutAlign.xs="space-around center"
+        fxLayoutAlign.xs="space-evenly center" fxLayoutGap.xs="20px">
         <div class="box1 LENGTH" (click)="selectBox('LENGTH')" [ngClass]="{'highlight':selectedBox==='LENGTH'}"
             (mouseover)="imgSrc ='../assets/images/CLENGTH.svg'" imgSrc='../assets/images/CLENGTH.svg'
             (mouseout)=" mouseOutEvent('LENGTH')">

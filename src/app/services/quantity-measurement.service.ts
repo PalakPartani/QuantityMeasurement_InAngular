@@ -13,11 +13,11 @@ export class QuantityMeasurementService {
 
   constructor(private httpService: HTTPServiceService) { }
 
-  do(): Observable<any> {
-    console.log("Inside QM service");
-    return this.httpService.getBaseUnits();
+  // do(): Observable<any> {
+  //   console.log("Inside QM service");
+  //   return this.httpService.getBaseUnits();
 
-  }
+  // }
   //:Observable<any>
   convertData(unitTypeOne: string, unitTypeSecond: string, value: any): any {
     const unitConversionDTO = {

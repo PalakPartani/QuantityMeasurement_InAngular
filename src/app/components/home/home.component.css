@@ -1,20 +1,22 @@
 .topBar{
-    /* display:flex; */
+    display:flex;
     padding: 20px;
-    width: 1100px;  
+    width:100%;
+    /* width: 1100px;   */
     margin: 0px auto;
     font-family: arial;
 }
 .Quanment{
-top: 16px;
+/* top: 16px;
 left: 212px;
-width: 126px;
+width: 126px; */
 height: 29px;
 font: normal normal 600 21px/31px Poppins;
 }
 .quanDiv{
-    width: 90%;
+    width: 50%;
     font-size: 20px;
+    text-align: center;
     margin-right: 5px;
 }
 .appBody{

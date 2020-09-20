@@ -52,3 +52,9 @@
       .example-full-width {
         width: 100%;
       }
+
+      @media only screen and (max-width: 594px) {
+        .boxFromTo {
+            height: 520px;
+        }
+      }

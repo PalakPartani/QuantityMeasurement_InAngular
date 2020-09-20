@@ -69,7 +69,6 @@ $volumebgcolor:rgba(236, 167, 167,0.5);
 .TEMPERATURE:hover{
    color:$tempcolor;
    background-color: $tempbgcolor!important;
-   // background-color: rgba(236, 167, 167,0.5)!important;
     border: 1px solid red !important;
     
 }
@@ -77,7 +76,6 @@ $volumebgcolor:rgba(236, 167, 167,0.5);
 .TEMPERATURE:active{
     color : red;
     background-color: $tempbgcolor;
-   // background-color: rgba(236, 167, 167,0.5);
     border: 1px solid red !important;
 }
 
@@ -87,7 +85,6 @@ $volumebgcolor:rgba(236, 167, 167,0.5);
 }
 .VOLUME:hover{
     background-color : #7224FF !important;
-   // background-color: rgba(236, 167, 167,0.5)!important;
     background-color: $volumebgcolor !important;
     border: 1px solid #7224FF !important;
   
@@ -98,34 +95,14 @@ $volumebgcolor:rgba(236, 167, 167,0.5);
     background-color: rgba(236, 167, 167,0.5);
     border: 1px solid #7224FF !important;
 }
-
-// .imgBox{
-//     display: block;
-// }
-// .imgBox .box1:hover{
-//     display: none !important;
-// }
-
-// .imgBoxHover{
-//     display: none;
-// }
-// .imgBoxHover .box1:hover{
-//     display: block !important;
-// }
-
-// .box1:hover{
-//     border:1px solid silver;    
-//     background-color:transparent;
-// }
 .alignBox{
     display: flex;
     justify-content: center;
     padding-top:20px;
 }
-
 .appBody{
     
     background-color:#E8DDFF;
     height: 1000px;
     margin-top: -30px;
-    }
+ }

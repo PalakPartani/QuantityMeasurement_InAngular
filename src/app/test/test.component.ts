@@ -23,24 +23,19 @@ export class TestComponent implements OnInit {
   public VolUnitArray: string[] = ["Litre", "ML", "Gallon"];
   public t;
 
-  // constructor(private data: DataServiceService, private resp: HTTPServiceService) { }
   constructor(private data: DataServiceService, private quantity: QuantityMeasurementService) { }
 
   ngOnInit(): void {
     //call from QM service 
-    this.quantity.do().subscribe(resp => {
-      console.log("Inside api data", resp)
-    })
-    // this.resp.getBaseUnits().subscribe(resp => {
-
+    // this.quantity.do().subscribe(resp => {
     //   console.log("Inside api data", resp)
-    // }
-    // )
+    // })
   }
 
   activeBox() {
     console.log("Inside method");
   }
+
 
   selectBox(unit: string) {
 

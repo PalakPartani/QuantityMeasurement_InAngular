@@ -1,0 +1,19 @@
+
+ @mixin fontFamily{
+    font-family: Montserrat,Regular;
+    text-align: center;
+} 
+.headTitle{
+    padding: 20px;
+    background-color: #446DFF;
+    color:white;
+    margin-bottom: -20px;
+     @include fontFamily(); 
+    
+}
+.title{
+    font-size: calc(0.75em + 2vmin);
+    margin: 0px auto;
+    color: rgb(212, 215, 218);
+    @include fontFamily(); 
+}
