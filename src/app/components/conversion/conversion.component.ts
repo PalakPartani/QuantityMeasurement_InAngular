@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
@@ -7,6 +7,7 @@ import { DataServiceService } from '../../services/data-service.service';
 import { QuantityMeasurementService } from 'src/app/services/quantity-measurement.service';
 import { HTTPServiceService } from 'src/app/services/httpservice.service';
 import { Response } from '../../response';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-conversion',
   templateUrl: './conversion.component.html',
@@ -14,10 +15,10 @@ import { Response } from '../../response';
 })
 export class ConversionComponent implements OnInit {
   control = new FormControl();
-  units: string[] = ['Yard', 'Inch', 'CM', 'Meter'];
+  units: string[] = ["CM", "FEET", "YARD", "INCH"];
   textInputValue: any;
-  unit: string = "";
-  subUnit: string = "";
+  unit = new FormControl(null);
+  subUnit = new FormControl(null);
   inputUnit: string = "";
   dataa: string = "";
   public inputValue = 0;
@@ -26,41 +27,57 @@ export class ConversionComponent implements OnInit {
   subUnitSelectedOne = "";
   subUnitSelectedTwo = "";
   filteredUnits: Observable<string[]>;
-  clear() {
-    this.inputUnit = '';
-  }
+
   constructor(private data: DataServiceService, private quantityMeasurement: QuantityMeasurementService) { }
 
   ngOnInit() {
+    this.unit.setValue(this.units[0]);
+    this.subUnit.setValue(this.units[1]);
+
     this.data.currentMessage.subscribe(message => {
       this.units = message.array
-      console.log("Inside conversion", message);
+      console.log("ng ont ", this.units);
+      // this.unit.setValue(this.units[0]);
+      // this.subUnit.setValue(this.units[1]);
+      //console.log("Inside conversion", message);
+      if (this.units.length != 0) {
+        this.unit.setValue(this.units[0]);
+        this.subUnit.setValue(this.units[1]);
+      }
+      this.dataa = "";
+      this.inputUnit = "";
+      this.textInputValue = "";
+      console.log("ngoninit unit", this.unit);
+
+      //this.inputValue = 0;
     });
+
+  }
+  keyPress(value: any) {
+    //console.log("unittttttttttttttttt", this.unit)
+    this.textInputValue = value;
+    console.log("Valuee", value);
+    this.passConversionData(this.unit.value.toString().toUpperCase(), this.subUnit.value.toString().toUpperCase(), value);
   }
 
 
-  keyPress(event: any, val: string, val2: string) {
-    console.log("Inside key press", event);
-    console.log("value", val);
-    console.log("Api data ", val2 + "", val + "" + this.inputUnit + event.key + "unit");
-    console.log("unit val ", this.unitValue + "unitttt", this.unit);
-    console.log("Subunit to be converted ", this.subUnit)
-    this.textInputValue = this.inputUnit + event.key;
-    this.passConversionData(this.unit.toUpperCase(), this.subUnit.toUpperCase(), this.inputUnit + event.key);
-  }
+  passConversionData(subUnitSelectedOne: any, subUnitSelectedTwo: any, inputValue: any) {
 
-  passConversionData(subUnitSelectedOne: string, subUnitSelectedTwo: string, inputValue: any) {
-    console.log("units........." + this.unit + "..", this.subUnit);
+    console.log("units.........");
+    console.log(this.unit.value);
+    console.log(this.subUnit.value);
+    console.log("text ip", this.textInputValue);
+    console.log(this.inputValue);
     if (this.inputValue == null || this.inputValue == 0 || this.inputValue.toString() == "") {
       inputValue = this.textInputValue;
     }
-    console.log("Event  ", inputValue);
+    if (this.textInputValue != null && this.textInputValue != 0 && this.textInputValue.toString() != "") {
 
-    console.log("Input " + subUnitSelectedOne + "2ip " + subUnitSelectedTwo + "ipval ", inputValue);
-    this.quantityMeasurement.convertData(this.unit.toUpperCase(), this.subUnit.toUpperCase(), inputValue).
-      subscribe((res: Response) => {
-        this.dataa = res.data;
-        console.log("Inside json", this.dataa);
-      })
+      this.quantityMeasurement.convertData(this.unit.value.toString().toUpperCase(), this.subUnit.value.toString().toUpperCase(), inputValue).
+        subscribe((res: Response) => {
+          this.dataa = res.data;
+        })
+    }
+
   }
 }

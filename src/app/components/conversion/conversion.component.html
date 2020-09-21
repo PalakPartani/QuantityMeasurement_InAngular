@@ -5,17 +5,14 @@
             <p>FROM</p>
             <div class="condata">
                 <form>
-                    <input type="text" name="inputUnit" [(ngModel)]="inputUnit"
-                        (keypress)="keyPress($event,unit,subUnit)">
+                    <input type="text" name="inputUnit" [(ngModel)]="inputUnit" (input)="keyPress(inputUnit)">
                 </form>
                 <form class="example-form">
-                    <input type="text" placeholder="{{units[0]}}" name="unit" [(ngModel)]="unit" [formControl]="control"
-                        [matAutocomplete]="auto">
+                    <input type="text" name="unit" [formControl]="unit" [matAutocomplete]="auto">
                     <mat-autocomplete #auto="matAutocomplete"
                         (optionSelected)='passConversionData($event.option.value,subUnit,inputValue)'>
                         <mat-option *ngFor="let unit of units" [value]="unit">
                             {{unit}}
-
                         </mat-option>
                     </mat-autocomplete>
                 </form>
@@ -28,8 +25,7 @@
                     <input type="text" value={{dataa}}>
                 </form>
                 <form class="example-form">
-                    <input type="text" placeholder="{{units[0]}}" name="subUnit" [(ngModel)]="subUnit"
-                        [formControl]="control" [matAutocomplete]="auto">
+                    <input type="text" name="subUnit" [formControl]="subUnit" [matAutocomplete]="auto">
                     <mat-autocomplete #auto="matAutocomplete"
                         (optionSelected)='passConversionData(unit,$event.option.value,inputValue)'>
                         <mat-option *ngFor="let subUnit of units" [value]="subUnit">

@@ -28,10 +28,13 @@ $volumebgcolor:rgba(236, 167, 167,0.5);
 
 
 .box1{
-    width: 120px;
+    // width: 120px;
+    max-width: 120px;
+    align-items: center;
     height: 120px;
     padding: 10px 40px;
-    margin-right: 50px;
+    margin:15px;
+     margin-right: 70px;
     border-radius: 10px;
     box-shadow: 0px 0px 5px silver;
     cursor: pointer;
@@ -103,6 +106,7 @@ $volumebgcolor:rgba(236, 167, 167,0.5);
 
 .alignBox{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     padding-top:20px;
 }
