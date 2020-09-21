@@ -15,17 +15,17 @@ $volumebgcolor:rgba(236, 167, 167,0.5);
     margin: 0px auto; 
 }
 .choose{
+    
     height:10px;
+    width:60%;
     margin-top: 30px;
-    margin-left: 25%;
-    font-size: 15px;
-    font-family: Montserrat, Medium;
+    font-family: arial;
     color:black;
+    font-size: 22px;
     text-align: left;
     padding-top: 40px;
     margin-bottom: 10px;
 }
-
 
 .box1{
     // width: 120px;
@@ -73,15 +73,13 @@ $volumebgcolor:rgba(236, 167, 167,0.5);
 .TEMPERATURE:hover{
    color:$tempcolor;
    background-color: $tempbgcolor!important;
-   // background-color: rgba(236, 167, 167,0.5)!important;
     border: 1px solid red !important;
     
 }
 
 .highlightTemp{
-    color : red;
+    color : red;    
     background-color: $tempbgcolor;
-   // background-color: rgba(236, 167, 167,0.5);
     border: 1px solid red !important;
 }
 
@@ -91,7 +89,6 @@ $volumebgcolor:rgba(236, 167, 167,0.5);
 }
 .VOLUME:hover{
     background-color : #7224FF !important;
-   // background-color: rgba(236, 167, 167,0.5)!important;
     background-color: $volumebgcolor !important;
     border: 1px solid #7224FF !important;
     color:#7224FF !important;
@@ -112,20 +109,13 @@ $volumebgcolor:rgba(236, 167, 167,0.5);
 }
 
 .appBody{
-    
     background-color:#E8DDFF;
     height: 1000px;
     margin-top: -30px;
     }
 
-    // @media only screen and (min-width: 756px) and (min-width: 630px) {
-    //     // .alignBox{
-    //     //     // flex-shrink: 1;
-    //     // }
-    // .box1{
-    //     width: 80px;
-    // }
-    // // .box{
-    // //     width: 80px;
-    // // }
-    //   }
+    @media only screen and (max-width: 946px) {
+        .choose{
+            width:80%;
+        }
+    }

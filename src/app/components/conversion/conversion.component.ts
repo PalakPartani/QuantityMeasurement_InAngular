@@ -37,9 +37,6 @@ export class ConversionComponent implements OnInit {
     this.data.currentMessage.subscribe(message => {
       this.units = message.array
       console.log("ng ont ", this.units);
-      // this.unit.setValue(this.units[0]);
-      // this.subUnit.setValue(this.units[1]);
-      //console.log("Inside conversion", message);
       if (this.units.length != 0) {
         this.unit.setValue(this.units[0]);
         this.subUnit.setValue(this.units[1]);
@@ -48,26 +45,15 @@ export class ConversionComponent implements OnInit {
       this.inputUnit = "";
       this.textInputValue = "";
       console.log("ngoninit unit", this.unit);
-
-      //this.inputValue = 0;
     });
 
   }
   keyPress(value: any) {
-    //console.log("unittttttttttttttttt", this.unit)
     this.textInputValue = value;
-    console.log("Valuee", value);
     this.passConversionData(this.unit.value.toString().toUpperCase(), this.subUnit.value.toString().toUpperCase(), value);
   }
 
-
   passConversionData(subUnitSelectedOne: any, subUnitSelectedTwo: any, inputValue: any) {
-
-    console.log("units.........");
-    console.log(this.unit.value);
-    console.log(this.subUnit.value);
-    console.log("text ip", this.textInputValue);
-    console.log(this.inputValue);
     if (this.inputValue == null || this.inputValue == 0 || this.inputValue.toString() == "") {
       inputValue = this.textInputValue;
     }

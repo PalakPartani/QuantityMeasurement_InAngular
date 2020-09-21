@@ -19,13 +19,4 @@ export class ChooseTypeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  activeBox() {
-    console.log("Inside method");
-  }
-  // public selectBox(value: string) {
-
-  //   this.selectedBox = value;
-  //   alert("Inside" + this.selectedBox);
-  // }
-
 }
