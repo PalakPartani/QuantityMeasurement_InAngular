@@ -37,19 +37,10 @@ export class ConversionComponent implements OnInit {
 
     this.data.currentMessage.subscribe((message) => {
       this.units = message.array;
-      console.log('Dataa  ngoninit', this.dataa);
       if (this.units.length != 0) {
         this.unit.setValue(this.units[0]);
         this.subUnit.setValue(this.units[1]);
       }
-      // if (this.unit.value.toString().toUpperCase() == 'CM') {
-      //   this.setSubUnit(12, 1, 1);
-      // } else if (this.unit.value.toString().toUpperCase() == 'LITRE') {
-      //   this.setSubUnit(1000, 1, 1);
-      // } else {
-      //   this.setSubUnit(32, 0, 0);
-      // }
-
       this.unit.value.toString().toUpperCase() == 'CM'
         ? this.setSubUnit(12, 1, 1)
         : this.unit.value.toString().toUpperCase() == 'LITRE'
@@ -78,23 +69,9 @@ export class ConversionComponent implements OnInit {
     subUnitSelectedTwo: any,
     inputValue: any
   ) {
-    console.log('Ip val ', inputValue);
-    console.log('Text ip val', this.textInputValue);
-    console.log('unit ', this.unit.value);
-    console.log('subunit', this.subUnit.value);
-    console.log('Dataa ', this.dataa);
-    // if (
-    //   this.inputValue == null ||
-    //   this.inputValue == 0 ||
-    //   this.inputValue.toString() == ''
-    // ) {
     if (this.inputValue == 0) {
       inputValue = this.textInputValue;
     }
-
-    // }
-    // if (this.textInputValue != null && this.textInputValue != 0 && this.textInputValue.toString() != "") {
-
     this.quantityMeasurement
       .convertData(
         this.unit.value.toString().toUpperCase(),

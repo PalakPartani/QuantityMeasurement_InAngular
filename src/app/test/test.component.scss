@@ -1,135 +1,132 @@
-$lengthcolor  :#0EC098;
-$tempbgcolor  : rgba(236, 167, 167, 0.5);
-$tempcolor    :red;
-$volumecolor  :#7224FF;
-$volumebgcolor:rgba(236, 167, 167, 0.5);
+$lengthcolor: #0ec098;
+$tempbgcolor: rgba(236, 167, 167, 0.5);
+$tempcolor: red;
+$volumecolor: #7224ff;
+$volumebgcolor: rgba(236, 167, 167, 0.5);
 
 .box {
-    display: flex;
-    width  : 100px;
-    padding: 30px 50px;
-    margin : 1px auto;
+  display: flex;
+  width: 100px;
+  padding: 30px 50px;
+  margin: 1px auto;
 }
 
 .boxx {
-    display: flex;
-    padding: 40px;
-    margin : 0px auto;
+  display: flex;
+  padding: 40px;
+  margin: 0px auto;
 }
 
 .choose {
-
-    height       : 10px;
-    width        : 60%;
-    margin-top   : 30px;
-    font-family  : arial;
-    color        : black;
-    font-size    : 22px;
-    text-align   : left;
-    padding-top  : 40px;
-    margin-bottom: 10px;
+  height: 10px;
+  width: 669px;
+  margin-top: 30px;
+  font-family: arial;
+  color: black;
+  font-size: 22px;
+  text-align: left;
+  padding-top: 40px;
+  margin-bottom: 10px;
 }
 
 .box1 {
-    // width: 120px;
-    max-width       : 120px;
-    align-items     : center;
-    height          : 120px;
-    padding         : 10px 40px;
-    margin          : 15px;
-    // margin-right: 70px;
-    border-radius   : 10px;
-    box-shadow      : 0px 0px 5px silver;
-    cursor          : pointer;
-    background-color: whitesmoke;
+  // width: 120px;
+  max-width: 120px;
+  align-items: center;
+  height: 120px;
+  padding: 10px 40px;
+  margin: 15px;
+  // margin-right: 70px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px silver;
+  cursor: pointer;
+  background-color: whitesmoke;
 }
 
 .boxIcon {
-    margin: 0px auto;
-    height: 80px;
-    width : 20px;
+  margin: 0px auto;
+  height: 80px;
+  width: 20px;
 }
 
 .boxText {
-    text-align: center;
+  text-align: center;
 }
 
 .LENGTH {
-    color: silver;
+  color: silver;
 }
 
 .LENGTH:hover {
-    color           : $lengthcolor !important;
-    background-color: #EDFDF9 !important;
-    border          : 1px solid $lengthcolor !important;
-
+  color: $lengthcolor !important;
+  background-color: #edfdf9 !important;
+  border: 1px solid $lengthcolor !important;
 }
 
 .highlight {
-
-    color           : #0EC098 !important;
-    background-color: #EDFDF9 !important;
-    border          : 1px solid #0EC098 !important;
+  color: #0ec098 !important;
+  background-color: #edfdf9 !important;
+  border: 1px solid #0ec098 !important;
 }
 
 .TEMPERATURE {
-    color: silver;
-
+  color: silver;
 }
 
 .TEMPERATURE:hover {
-    color           : $tempcolor;
-    background-color: $tempbgcolor !important;
-    border          : 1px solid red !important;
-
+  color: $tempcolor;
+  background-color: $tempbgcolor !important;
+  border: 1px solid red !important;
 }
 
 .highlightTemp {
-    color           : red;
-    background-color: $tempbgcolor;
-    border          : 1px solid red !important;
+  color: red;
+  background-color: $tempbgcolor;
+  border: 1px solid red !important;
 }
 
 .VOLUME {
-    color: silver;
-
+  color: silver;
 }
 
 .VOLUME:hover {
-    background-color: #7224FF !important;
-    background-color: $volumebgcolor !important;
-    border          : 1px solid #7224FF !important;
-    color           : #7224FF !important;
-
+  background-color: #7224ff !important;
+  background-color: $volumebgcolor !important;
+  border: 1px solid #7224ff !important;
+  color: #7224ff !important;
 }
 
 .highlightVol {
-    color           : #7224FF;
-    background-color: rgba(236, 167, 167, 0.5);
-    border          : 1px solid #7224FF !important;
+  color: #7224ff;
+  background-color: rgba(236, 167, 167, 0.5);
+  border: 1px solid #7224ff !important;
 }
 
 .alignBox {
-    display        : flex;
-    flex-wrap      : wrap;
-    justify-content: center;
-    padding-top    : 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 20px;
 }
 
 .appBody {
-    background-color: #E8DDFF;
-    height          : 1000px;
-    margin-top      : -30px;
+  background-color: #e8ddff;
+  height: 1000px;
+  margin-top: -30px;
 }
 
-@media only screen and (max-width: 946px),
-(min-width:805),
-(min-width:585px) {
-    .choose {
-        width: 45%;
-    }
+@media only screen and (max-width: 682px) {
+  .choose {
+    width: 40%;
+  }
+}
 
-    .choose {
-        width: 84%
-    }
+@media only screen and (min-width: 805), (max-width: 585px) {
+  .choose {
+    width: 90%;
+  }
+
+  .choose {
+    width: 35%;
+  }
 }
