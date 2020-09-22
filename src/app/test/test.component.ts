@@ -1,14 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DataServiceService } from '../services/data-service.service'
+import { DataServiceService } from '../services/data-service.service';
 import { QuantityMeasurementService } from '../services/quantity-measurement.service';
 import { ConversionComponent } from '../components/conversion/conversion.component';
+import { Response } from '../response';
+
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
-  styleUrls: ['./test.component.scss']
+  styleUrls: ['./test.component.scss'],
 })
 export class TestComponent implements OnInit {
-
   public imgSrc = '../assets/images/CLENGTH.svg';
   public imgSrcTemp = '../assets/images/TEMPERATURE.svg';
   public imgSrcVol = '../assets/images/VOLUME.svg';
@@ -18,11 +19,15 @@ export class TestComponent implements OnInit {
   public selectedVol = false;
   public selectedTemp = false;
   public temp = true;
-  public lengthUnitArray: string[] = ["CM", "FEET", "YARD", "INCH"];
-  public tempUnitArray: string[] = ["FAHRENHEIT", "CELSIUS"];
-  public VolUnitArray: string[] = ["LITRE", "MILLILITER", "GALLON"];
+  public lengthUnitArray: string[] = ['CM', 'FEET', 'YARD', 'INCH'];
+  public tempUnitArray: string[] = ['FAHRENHEIT', 'CELSIUS'];
+  public VolUnitArray: string[] = ['LITRE', 'MILLILITER', 'GALLON'];
   public conv;
-  constructor(private data: DataServiceService, private quantity: QuantityMeasurementService) { }
+  public responsee;
+  constructor(
+    private data: DataServiceService,
+    private quantity: QuantityMeasurementService
+  ) {}
 
   ngOnInit(): void {
     this.conv = new ConversionComponent(this.data, this.quantity);
@@ -34,28 +39,28 @@ export class TestComponent implements OnInit {
       this.imgSrcVol = '../assets/images/VOLUME.svg';
       this.imgSrc = '../assets/images/LENGTH.svg';
       this.data.changeUnits({ array: this.tempUnitArray });
-    }
-    else if (unit == 'VOLUME') {
+    } else if (unit == 'VOLUME') {
       this.imgSrcVol = '../assets/images/CVOLUME.svg';
       this.imgSrc = '../assets/images/LENGTH.svg';
       this.imgSrcTemp = '../assets/images/TEMPERATURE.svg';
       this.data.changeUnits({ array: this.VolUnitArray });
-    }
-    else {
+    } else {
       this.imgSrc = '../assets/images/CLENGTH.svg';
       this.imgSrcVol = '../assets/images/VOLUME.svg';
       this.imgSrcTemp = '../assets/images/TEMPERATURE.svg';
       this.data.changeUnits({ array: this.lengthUnitArray });
     }
+
+    // this.responsee = this.conv.passConversionData('', '', '1');
+
+    // console.log('Responsee ', this.responsee);
   }
   mouseOutEvent(unit: string) {
     if (unit === 'TEMPERATURE' && this.selectedBox != 'TEMPERATURE') {
       this.imgSrcTemp = '../assets/images/TEMPERATURE.svg';
-    }
-    else if (unit === 'VOLUME' && this.selectedBox != 'VOLUME') {
+    } else if (unit === 'VOLUME' && this.selectedBox != 'VOLUME') {
       this.imgSrcVol = '../assets/images/VOLUME.svg';
-    }
-    else if (unit === 'LENGTH' && this.selectedBox != 'LENGTH') {
+    } else if (unit === 'LENGTH' && this.selectedBox != 'LENGTH') {
       this.imgSrc = '../assets/images/LENGTH.svg';
     }
   }

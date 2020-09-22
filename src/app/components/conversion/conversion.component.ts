@@ -5,65 +5,108 @@ import { startWith, map } from 'rxjs/operators';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { DataServiceService } from '../../services/data-service.service';
 import { QuantityMeasurementService } from 'src/app/services/quantity-measurement.service';
-import { HTTPServiceService } from 'src/app/services/httpservice.service';
 import { Response } from '../../response';
-import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-conversion',
   templateUrl: './conversion.component.html',
-  styleUrls: ['./conversion.component.css']
+  styleUrls: ['./conversion.component.css'],
 })
 export class ConversionComponent implements OnInit {
   control = new FormControl();
-  units: string[] = ["CM", "FEET", "YARD", "INCH"];
-  textInputValue: any;
-  unit = new FormControl(null);
-  subUnit = new FormControl(null);
-  inputUnit: string = "";
-  dataa: string = "";
+  units: string[] = ['CM', 'FEET', 'YARD', 'INCH'];
+  textInputValue: any = 1;
+  unit = new FormControl('CM');
+  subUnit = new FormControl('FEET');
+  inputUnit: any = 1;
+  dataa: any = '0';
+  respData = '';
   public inputValue = 0;
-  public unitValue: string = "";
+  public unitValue: string = '';
   public result = 0;
-  subUnitSelectedOne = "";
-  subUnitSelectedTwo = "";
-  filteredUnits: Observable<string[]>;
+  subUnitSelectedOne = '';
+  subUnitSelectedTwo = '';
 
-  constructor(private data: DataServiceService, private quantityMeasurement: QuantityMeasurementService) { }
+  constructor(
+    private data: DataServiceService,
+    private quantityMeasurement: QuantityMeasurementService
+  ) {}
 
   ngOnInit() {
     this.unit.setValue(this.units[0]);
     this.subUnit.setValue(this.units[1]);
 
-    this.data.currentMessage.subscribe(message => {
-      this.units = message.array
-      console.log("ng ont ", this.units);
+    this.data.currentMessage.subscribe((message) => {
+      this.units = message.array;
+      console.log('Dataa  ngoninit', this.dataa);
       if (this.units.length != 0) {
         this.unit.setValue(this.units[0]);
         this.subUnit.setValue(this.units[1]);
       }
-      this.dataa = "";
-      this.inputUnit = "";
-      this.textInputValue = "";
-      console.log("ngoninit unit", this.unit);
-    });
+      // if (this.unit.value.toString().toUpperCase() == 'CM') {
+      //   this.setSubUnit(12, 1, 1);
+      // } else if (this.unit.value.toString().toUpperCase() == 'LITRE') {
+      //   this.setSubUnit(1000, 1, 1);
+      // } else {
+      //   this.setSubUnit(32, 0, 0);
+      // }
 
+      this.unit.value.toString().toUpperCase() == 'CM'
+        ? this.setSubUnit(12, 1, 1)
+        : this.unit.value.toString().toUpperCase() == 'LITRE'
+        ? this.setSubUnit(1000, 1, 1)
+        : this.setSubUnit(32, 0, 0);
+    });
   }
+
+  setSubUnit(dataValue: any, inputUnit: any, textinput: any) {
+    this.dataa = dataValue;
+    this.inputUnit = inputUnit;
+    this.textInputValue = textinput;
+  }
+
   keyPress(value: any) {
     this.textInputValue = value;
-    this.passConversionData(this.unit.value.toString().toUpperCase(), this.subUnit.value.toString().toUpperCase(), value);
+    this.passConversionData(
+      this.unit.value.toString().toUpperCase(),
+      this.subUnit.value.toString().toUpperCase(),
+      value
+    );
   }
 
-  passConversionData(subUnitSelectedOne: any, subUnitSelectedTwo: any, inputValue: any) {
-    if (this.inputValue == null || this.inputValue == 0 || this.inputValue.toString() == "") {
+  passConversionData(
+    subUnitSelectedOne: any,
+    subUnitSelectedTwo: any,
+    inputValue: any
+  ) {
+    console.log('Ip val ', inputValue);
+    console.log('Text ip val', this.textInputValue);
+    console.log('unit ', this.unit.value);
+    console.log('subunit', this.subUnit.value);
+    console.log('Dataa ', this.dataa);
+    // if (
+    //   this.inputValue == null ||
+    //   this.inputValue == 0 ||
+    //   this.inputValue.toString() == ''
+    // ) {
+    if (this.inputValue == 0) {
       inputValue = this.textInputValue;
     }
-    if (this.textInputValue != null && this.textInputValue != 0 && this.textInputValue.toString() != "") {
 
-      this.quantityMeasurement.convertData(this.unit.value.toString().toUpperCase(), this.subUnit.value.toString().toUpperCase(), inputValue).
-        subscribe((res: Response) => {
-          this.dataa = res.data;
-        })
-    }
+    // }
+    // if (this.textInputValue != null && this.textInputValue != 0 && this.textInputValue.toString() != "") {
 
+    this.quantityMeasurement
+      .convertData(
+        this.unit.value.toString().toUpperCase(),
+        this.subUnit.value.toString().toUpperCase(),
+        inputValue
+      )
+      .subscribe((res: Response) => {
+        this.dataa = res.data;
+      });
+
+    console.log('Dataa ', this.dataa);
+
+    // }
   }
 }
